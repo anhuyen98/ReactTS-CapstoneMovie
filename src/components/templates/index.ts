@@ -1,0 +1,6 @@
+export * from './LoginTemplate'
+export * from './RegisterTemplate'
+export * from './DetailTemplate'
+export * from './TicketroomTemplate'
+export * from './ProfileTemplate'
+export * from './HomeTemplate'

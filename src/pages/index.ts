@@ -1,0 +1,6 @@
+export * from './Login'
+export * from './Register'
+export * from './Detail'
+export * from './Ticketroom'
+export * from './Profile'
+export * from './Home'
