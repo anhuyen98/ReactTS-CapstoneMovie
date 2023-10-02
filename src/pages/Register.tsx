@@ -1,9 +1,7 @@
-import { RegisterTemplate } from "components"
+import { RegisterTemplate } from 'components'
 
 export const Register = () => {
-  return (
-    <div>
-      <RegisterTemplate />
-    </div>
-  )
+    return <RegisterTemplate />
 }
+
+export default Register
