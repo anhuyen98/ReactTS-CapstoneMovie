@@ -8,8 +8,8 @@ export const HomeTemplate = () => {
     const dispatch = useAppDispatch()
     const { movieList, isFetchingMovieList } = useSelector((state: RootState) => state.quanLyPhim)
 
-    console.log('isFetchingMovieList: ', isFetchingMovieList)
-    console.log('movieList: ', movieList)
+    // console.log('isFetchingMovieList: ', isFetchingMovieList)
+    // console.log('movieList: ', movieList)
 
     useEffect(() => {
         dispatch(getMovieListThunk())

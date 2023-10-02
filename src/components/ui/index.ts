@@ -7,3 +7,5 @@ export * from './Popover'
 export * from './Card'
 export * from './Skeleton'
 export * from './Tabs'
+export * from './Carousel'
+
