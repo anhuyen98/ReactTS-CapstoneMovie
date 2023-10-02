@@ -1,11 +1,11 @@
-// import styled from 'styled-components'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input } from 'components/ui'
 import { useAuth } from 'hooks'
 import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { AccountSchema, AccountSchemaType } from 'schema/AccountSchema'
-// import styled from 'styled-components'
+
 
 export const AccountInfo = () => {
     const { user } = useAuth()
@@ -21,9 +21,6 @@ export const AccountInfo = () => {
 
     const onSubmit: SubmitHandler<AccountSchemaType> = (value) => {
         console.log('value: ', value)
-        // gọi API update tài khoản
-
-        // dispatch action getUserByAccessToken
     }
 
     useEffect(() => {
@@ -33,7 +30,7 @@ export const AccountInfo = () => {
         })
     }, [user, reset])
 
-    // life cycle + useRef, useCallback, useMemo
+
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -88,13 +85,3 @@ export const AccountInfo = () => {
         </form>
     )
 }
-
-// const InputS = styled(Input)`
-//     label {
-//         color: #111;
-//     }
-
-//     input {
-
-//     }
-// `

@@ -95,7 +95,6 @@ const Container = styled.footer`
                 &:hover {
                     color: var(--primary-color);
                     text-shadow: var(--primary-color) 0 0 1px;
-                    /* font-weight: 600; */
                 }
             }
         }

@@ -17,21 +17,19 @@ export const RegisterTemplate = () => {
         mode: 'onChange',
         resolver: zodResolver(RegisterSchema),
     })
-    // const { errors } = formState
-    // console.log('errors: ', errors)
+    
 
     const navigate = useNavigate()
 
     const onSubmit: SubmitHandler<RegisterSchemaType> = async (values) => {
         try {
-            // console.log({ values })
+            
             await quanLyNguoiDungServices.register(values)
             toast.success('Đăng ký thành công!')
-            // redirect về trang login
+            
             navigate(PATH.login)
         } catch (err) {
-            // console.log(err)
-            // toast.error(err?.response?.data?.content)
+           
             handleError(err)
         }
     }

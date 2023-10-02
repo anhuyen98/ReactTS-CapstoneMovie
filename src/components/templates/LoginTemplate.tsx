@@ -28,12 +28,12 @@ export const LoginTemplate = () => {
         dispatch(loginThunk(value))
             .unwrap()
             .then(() => {
-                // xử lý action thành công
+               
                 toast.success('Đăng nhập thành công!')
                 navigate('/')
             })
             .catch((err) => {
-                // xử lý action thất bại
+                
                 handleError(err)
             })
     }

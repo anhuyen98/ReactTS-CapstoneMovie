@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { HTMLInputTypeAttribute } from 'react'
 import { UseFormRegister } from 'react-hook-form'
 
-//rafc
+
 type InputProps = {
     label?: string
     id?: string
