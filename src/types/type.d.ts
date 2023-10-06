@@ -3,5 +3,3 @@ declare type ApiResponse<H> = {
     message: string,
     content: H
 }
-
-

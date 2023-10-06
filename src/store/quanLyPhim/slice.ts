@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Movie } from 'types';
-import { getMovieListThunk } from '.';
+import { createSlice } from '@reduxjs/toolkit'
+import { Movie } from 'types'
+import { getMovieListThunk } from '.'
 
 type QuanLyPhimInitialState = {
     movieList?: Movie[]

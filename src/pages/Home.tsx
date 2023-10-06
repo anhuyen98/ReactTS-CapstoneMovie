@@ -1,9 +1,5 @@
-import { HomeTemplate } from "components"
+import { HomeTemplate } from 'components'
 
 export const Home = () => {
-  return (
-    <div>
-      <HomeTemplate />
-    </div>
-  )
+    return <HomeTemplate />
 }

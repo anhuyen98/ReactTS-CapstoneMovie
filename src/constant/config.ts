@@ -5,5 +5,5 @@ export const PATH = {
     ticketroom: '/ticketroom/:ticketId',
     profile: '/profile',
     testhome: '/testhome',
-    account: '/account'
+    account: '/account',
 }

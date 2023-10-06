@@ -1,9 +1,5 @@
-import { AccountTemplate } from "components"
+import { AccountTemplate } from 'components'
 
 export const Account = () => {
-  return (
-    <div>
-        <AccountTemplate />
-    </div>
-  )
+    return <AccountTemplate />
 }

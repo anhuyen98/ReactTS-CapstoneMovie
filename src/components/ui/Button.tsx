@@ -6,4 +6,5 @@ type ButtonProps = ButtonPropsA & {
 
 export const Button = (props: ButtonProps) => {
     return <ButtonA {...props} />
-} 
+
+}

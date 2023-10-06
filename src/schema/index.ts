@@ -1,6 +1,2 @@
 export * from './RegisterSchema'
 export * from './LoginSchema'
-export * from './ProfileSchema'
-export * from './TicketroomSchema'
-export * from './DetailSchema'
-export * from './HomeSchema'

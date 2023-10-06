@@ -8,8 +8,9 @@ type CardObject = {
     Grid: React.FC<CardGridProps>
 }
 
-export const Card: CardObject = (props) => { 
-  return <CardA {...props}/>
+
+export const Card: CardObject = (props) => {
+    return <CardA {...props} />
 }
 
 Card.Meta = CardA.Meta
