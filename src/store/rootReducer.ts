@@ -4,7 +4,7 @@ import { quanLyDatVeReducer } from "./quanLyDatVe";
 import { quanLyNguoiDungReducer } from './quanLyNguoiDung'
 import { heThongRapReducer } from './thongTinHeThongRap/slice'
 import { lichChieuReducer } from './lichChieu/slice'
-import { quanLyPhimReducer } from "./quanLyPhim";
+import { quanLyPhimReducer } from './quanLyPhim';
 
 export const rootReducer = combineReducers({
     quanLyNguoiDung: quanLyNguoiDungReducer,

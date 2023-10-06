@@ -43,8 +43,8 @@ export const HomeTemplate = () => {
                         cover={<img alt="example" src={movie.hinhAnh} />}
                     >
                         <Card.Meta
-                            title={movie.tenPhim}
-                            description={movie.moTa.substring(0, 30)}
+                            title={movie?.tenPhim}
+                            description={movie?.moTa?.substring(0, 30)}
                         />
                     </Card>
                 ))}
