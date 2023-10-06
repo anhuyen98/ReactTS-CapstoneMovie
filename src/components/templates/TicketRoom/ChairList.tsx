@@ -30,7 +30,7 @@ export const ChairList = () => {
             //   )
             // }
             // else {
-            return <p className={cn("py-2 px-3 border-2 rounded-md m-3 inline-block", {
+            return <p className={cn("py-4 px-8 border-2 rounded-md m-[15px] inline-block", {
               booking: chairBookings?.find((chair) => chair.stt === ghe.stt),
               booked: (chairBookeds?.find((chair) => chair.stt === ghe.stt) || (ghe.daDat)),
               vip: ghe.loaiGhe === 'Vip'

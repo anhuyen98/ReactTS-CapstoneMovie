@@ -63,19 +63,19 @@ export const Choose = () => {
 
         <h4 className="text-2xl mb-5 font-medium">Danh sách ghế</h4>
         <div className="flex items-center ">
-          <p className="booked p-2 px-3 border-2 !h-10 !w-10 rounded-md m-4 inline-block"></p>
+          <p className="booked py-4 px-8 border-2 !h-[30px] !w-[30px] rounded-md m-10 inline-block"></p>
           <p className="inline-block">Ghế đã đặt</p>
         </div>
         <div className="flex items-center">
-          <p className="booking p-2 px-3 border-2 !h-10 !w-10 rounded-md m-4 inline-block"></p>
+          <p className="booking py-4 px-8 border-2 !h-[30px] !w-[30px] rounded-md m-10 inline-block"></p>
           <p className="inline-block">Ghế đang chọn</p>
         </div>
         <div className="flex items-center">
-          <p className="p-2 px-3 border-2 !h-10 !w-10 rounded-md m-4 inline-block"></p>
+          <p className="py-4 px-8 border-2 !h-[30px] !w-[30px] rounded-md m-10 inline-block"></p>
           <p className="inline-block">Ghế Thường chưa đặt</p>
         </div>
         <div className="flex items-center">
-          <p className="vip p-2 px-3 border-2 !h-10 !w-10 rounded-md m-4 inline-block"></p>
+          <p className="vip py-4 px-8 border-2 !h-[30px] !w-[30px] rounded-md m-10 inline-block"></p>
           <p className="inline-block">Ghế Vip chưa đặt</p>
         </div>
         <Table className="my-5" columns={columns} dataSource={dataSource} />

@@ -1,11 +1,15 @@
-import { Card, Skeleton } from 'components'
+import { BannerHeThongRap, BannerLichChieu, Button, Card, Carousel, Skeleton } from 'components'
+import { PATH } from 'constant'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { generatePath, useNavigate } from 'react-router-dom'
 import { RootState, useAppDispatch } from 'store'
 import { getMovieListThunk } from 'store/quanLyPhim'
+import styled from 'styled-components'
 
 export const HomeTemplate = () => {
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
     const { movieList, isFetchingMovieList } = useSelector((state: RootState) => state.quanLyPhim)
 
     // console.log('isFetchingMovieList: ', isFetchingMovieList)
@@ -18,9 +22,9 @@ export const HomeTemplate = () => {
     if (isFetchingMovieList) {
         return (
             <div className="grid grid-cols-4">
-                {[...Array(12)].map(() => {
+                {[...Array(12)].map((index) => {
                     return (
-                        <Card className="!w-[300px] !mt-20">
+                        <Card key={index} className="!w-[300px] !mt-20">
                             <Skeleton.Image className="!w-full !h-[250px]" />
                             <Skeleton.Input className="!w-full mt-16" />
                             <Skeleton.Input className="!w-full mt-16" />
@@ -33,8 +37,12 @@ export const HomeTemplate = () => {
 
     return (
         <div>
+            <Carousel />
+            <MainWrapper id="main-content">
             <div className="grid grid-cols-4">
                 {movieList?.map((movie) => (
+                    <div key={movie.maPhim}>
+
                     <Card
                         key={movie.maPhim}
                         className="!mt-20 !mb-5"
@@ -47,8 +55,25 @@ export const HomeTemplate = () => {
                             description={movie?.moTa?.substring(0, 30)}
                         />
                     </Card>
+                    <Button onClick={() => {
+                        const path = generatePath(PATH.detail, { detailId: movie.maPhim })
+                        console.log("path: ", path);
+                        navigate(path)
+                    }}>Mô tả</Button>
+                    </div>
                 ))}
             </div>
+                
+            </MainWrapper>
+            
+            <BannerHeThongRap/>
+            <BannerLichChieu />
         </div>
     )
 }
+
+const MainWrapper = styled.div`
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 40px;
+`

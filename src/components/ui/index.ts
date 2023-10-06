@@ -10,4 +10,6 @@ export * from './Avatar'
 export * from './Popover'
 export * from './Card'
 export * from './Carousel'
+export * from './BannerHeThongRap'
+export * from './BannerLichChieu'
 

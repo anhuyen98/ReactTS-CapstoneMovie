@@ -18,11 +18,11 @@ export const TicketroomTemplate = () => {
         pauseOnHover
         theme="colored"
       />
-      <div className="col-start-2 col-end-8">
-        <div className="bg-black h-12 w-100 text-white text-3xl text-center leading-10 mb-10">Screen</div>
+      <div className="col-start-2 col-end-8 mt-[80px]">
+        <div className="bg-black w-100 text-white text-2xl text-center leading-10 mb-10">Screen</div>
         <ChairList />
       </div>
-      <div className="col-start-9 col-end-12">
+      <div className="col-start-9 col-end-12 mt-[80px]">
         <Choose />
       </div>
     </div>

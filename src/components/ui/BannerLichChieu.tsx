@@ -23,15 +23,21 @@ export const BannerLichChieu = () => {
             <div className="grid grid-cols-6">
             {
                 listDanhSachPhim?.map((list) => (
-                    <Card
-                        style={{ width: 100 }}
-                        className="!mt-5"
-                        cover={<img src={list.hinhAnh} alt="example" />}
-                        title={list.tenPhim}
-                        //title={list.tenRap}
-                        bordered={false}
-                    >
-                    </Card>))
+                    
+
+                        <Card
+                            style={{ width: 100 }}
+                            className="!mt-5"
+                            cover={<img src={list.hinhAnh} alt="example" />}
+                            title={list.tenPhim}
+                            //title={list.tenRap}
+                            bordered={false}
+                        >
+                        </Card>
+                        
+                    
+                )
+                    )
             }
             </div>
             
