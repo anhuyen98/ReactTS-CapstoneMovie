@@ -1,7 +1,7 @@
 export const AdminLayout = () => {
   return (
     <div>
-      hello
+      COMMING SOON
     </div>
   )
 }
