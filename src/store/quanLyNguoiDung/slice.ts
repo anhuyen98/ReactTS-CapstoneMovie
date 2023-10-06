@@ -4,7 +4,7 @@ import { getUserByAccessTokenThunk, loginThunk } from '.'
 import { getAccessToken } from 'utils'
 
 type QuanLyNguoiDungInitialState = {
-    accessToken?: string
+    accessToken?: string | null
     userLogin?: UserLogin | UserByAccessToken
     isFetchingLogin?: boolean
 }
@@ -41,7 +41,6 @@ const quanLyNguoiDungSlice = createSlice({
                 localStorage.setItem('ACCESSTOKEN', payload.accessToken)
                 state.accessToken = payload.accessToken
 
-              
                 state.userLogin = payload
                 state.isFetchingLogin = false
             })

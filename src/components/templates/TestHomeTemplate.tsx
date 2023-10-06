@@ -41,7 +41,7 @@ export const TestHomeTemplate = () => {
               style={{ width: 240 }}
               cover={<img alt="example" src={movie.hinhAnh} />}
             >
-              <Card.Meta title={movie.tenPhim} description={movie.moTa.substring(0, 30)} />
+              <Card.Meta title={movie?.tenPhim} description={movie?.moTa?.substring(0, 30)} />
               <button className="border border-solid border-red-500 px-5 py-2 mt-2" onClick={() => {
                 const path = generatePath(PATH.detail, { detailId: movie.maPhim })
                 console.log("path: ", path);
