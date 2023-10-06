@@ -1,21 +1,22 @@
 import { Card, Skeleton } from 'components'
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState, useAppDispatch } from 'store'
-import { getMovieListThunk } from 'store/quanLyPhim'
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import { RootState, useAppDispatch } from "store"
+import { lichChieuThunk } from "store/lichChieu"
 
-export const HomeTemplate = () => {
+
+export const BannerLichChieu = () => {
     const dispatch = useAppDispatch()
-    const { movieList, isFetchingMovieList } = useSelector((state: RootState) => state.quanLyPhim)
+    const { listLichChieu, isFetchingLichChieu } = useSelector((state: RootState) => state.lichChieu)
+    console.log("isFetchingLichChieu: ", isFetchingLichChieu);
+    console.log("listLichChieu: ", listLichChieu);
 
-    // console.log('isFetchingMovieList: ', isFetchingMovieList)
-    // console.log('movieList: ', movieList)
 
     useEffect(() => {
-        dispatch(getMovieListThunk())
+        dispatch(lichChieuThunk())
     }, [dispatch])
 
-    if (isFetchingMovieList) {
+    if (isFetchingLichChieu) {
         return (
             <div className="grid grid-cols-4">
                 {[...Array(12)].map(() => {
@@ -34,17 +35,18 @@ export const HomeTemplate = () => {
     return (
         <div>
             <div className="grid grid-cols-4">
-                {movieList?.map((movie) => (
+                {listLichChieu?.map((m) => (
                     <Card
-                        key={movie.maPhim}
+                        key={}
                         className="!mt-20 !mb-5"
                         hoverable
                         style={{ width: 240 }}
-                        cover={<img alt="example" src={movie.hinhAnh} />}
+                        title={movie.tenHeThongRap}
+                        cover={<img alt="example" src={movie.hinh} />}
                     >
                         <Card.Meta
-                            title={movie.tenPhim}
-                            description={movie.moTa.substring(0, 30)}
+                            title={movie.mahom}
+                            //description={movie.giaVe}
                         />
                     </Card>
                 ))}

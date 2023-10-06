@@ -1,41 +1,33 @@
 import { RouteObject } from 'react-router-dom'
 import { PATH } from 'constant'
 import { AuthLayout, MainLayout } from 'components'
-import { Detail, Home, Login, Profile, Register, Ticketroom } from "pages"
+import { Login, Register, Home, Account } from 'pages'
 
 export const router: RouteObject[] = [
     {
         path: '/',
-        element: <Home />
+        element: <MainLayout />,
+        children: [
+            {
+                index: true,
+                element: <Home />,
+            },
+            {
+                path: PATH.account,
+                element: <Account />
+            }
+        ],
     },
     {
         element: <AuthLayout />,
         children: [
             {
                 path: PATH.login,
-                element: <Login />
+                element: <Login />,
             },
             {
                 path: PATH.register,
-                element: <Register />
-
-            },
-        ],
-    },
-    {
-        element: <MainLayout />,
-        children: [
-            {
-                path: PATH.detail,
-                element: <Detail />
-            },
-            {
-                path: PATH.ticketroom,
-                element: <Ticketroom />
-            },
-            {
-                path: PATH.profile,
-                element: <Profile />
+                element: <Register />,
             },
         ],
     },
