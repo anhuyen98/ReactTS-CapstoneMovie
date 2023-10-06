@@ -1,10 +1,10 @@
 import { apiInstance } from "constant/apiInstance";
-import { RapChieuPhim, CumRap, ListPhim, LichChieuPhim } from "types";
+import { DanhSachPhim } from "types";
 
 const api = apiInstance({
     baseURL: import.meta.env.VITE_THONG_TIN_RAP_API,
 })
 
-export const lichChieuServices = {
-    getLichChieuList: (query= '') => api.get<ApiResponse<RapChieuPhim<CumRap<ListPhim<LichChieuPhim>>>>>(`/LayThongTinLichChieuHeThongRap${query}`),
+export const lichChieuServices = {   
+    getDanhSachPhim: (maHeThongRap = "") => api.get<ApiResponse<DanhSachPhim[]>>(`/LayThongTinLichChieuHeThongRap?maHeThongRap${maHeThongRap}&maNhom=GP12`),
 }

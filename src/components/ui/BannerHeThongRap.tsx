@@ -9,7 +9,7 @@ export const BannerHeThongRap = () => {
     const { listHeThongRap, isFetchingListHeThongRap } = useSelector((state: RootState) => state.heThongRap)
 
     console.log("isFetchingListHeThongRap: ", isFetchingListHeThongRap);
-    console.log("listHeThongRap: ", listHeThongRap);
+    // console.log("listHeThongRap: ", listHeThongRap);
 
 
     useEffect(() => {
@@ -19,22 +19,6 @@ export const BannerHeThongRap = () => {
 
     return (
         <div>
-            {/* <div className="grid grid-cols-6">
-                {
-                    listHeThongRap?.map((rap) => (
-                        <Card
-                            key={rap.maHeThongRap}
-                            className="!mt-5"
-                            hoverable
-                            style={{ width: 120 }}
-                            cover={<img alt="example" src={rap.logo} />}
-                        >
-                            <Card.Meta
-                                title={rap.tenHeThongRap}
-                            />
-                        </Card>))
-                }
-            </div> */}
             <div className="grid grid-cols-6">
             {
                 listHeThongRap?.map((rap) => (

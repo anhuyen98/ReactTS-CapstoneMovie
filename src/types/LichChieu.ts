@@ -1,34 +1,36 @@
-export type RapChieuPhim<T> = {
-    lstCumRap?: T
-    maHeThongRap?: string
-    tenHeThongRap?: string
-    logo?: string
-    mahom?: string
-}
-
-export type CumRap<T> = {
-    danhSachPhim?: T
-    maCumRap?: string
-    tenCumRap?: string
-    hinhAnh?: string
-    diaChi?: string
-}[]
-export type ListPhim<T> = {
-    lstLichChieuTheoPhim?: T
-    maPhim?: number
-    tenPhim?: string
-    hinhAnh?: string
-    hot?: boolean
-    dangChieu?: boolean
-    sapChieu?: boolean
-}[]
-export type LichChieuPhim = {
-    maLichChieu?: number
-    maRap?: string
-    tenRap?: string
-    ngayChieuGioChieu?: string
-    giaVe?: number
-}[]
+export type LstCumRap = {
+    lstCumRap: CumRap[];
+    maHeThongRap: string;
+    tenHeThongRap: string;
+    logo: string;
+    mahom: string;
+  };
+  
+  export type CumRap = {
+    danhSachPhim: DanhSachPhim[];
+    maCumRap: string;
+    tenCumRap: string;
+    hinhAnh: string;
+    diaChi: string;
+  };
+  
+  export type DanhSachPhim = {
+    lstLichChieuTheoPhim: LichChieuTheoPhim[];
+    maPhim: number;
+    tenPhim: string;
+    hinhAnh: string;
+    hot: boolean | null;
+    dangChieu: boolean | null;
+    sapChieu: boolean | null;
+  };
+  
+  export type LichChieuTheoPhim = {
+    maLichChieu: number;
+    maRap: string;
+    tenRap: string;
+    ngayChieuGioChieu: Date;
+    giaVe: number;
+  };
 
 
 

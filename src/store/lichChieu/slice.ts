@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RapChieuPhim, CumRap, ListPhim, LichChieuPhim } from 'types'
+import { DanhSachPhim } from 'types'
 import { lichChieuThunk } from ".";
 
 type LichChieuInitialState = {
-    listLichChieu?: RapChieuPhim<CumRap<ListPhim<LichChieuPhim>>>
-    
+    listDanhSachPhim?: DanhSachPhim[]
     isFetchingLichChieu?: boolean
 }
 
@@ -22,7 +21,7 @@ const lichChieuSlice = createSlice({
                 state.isFetchingLichChieu = true
             })
             .addCase(lichChieuThunk.fulfilled, (state, { payload }) => {
-                state.listLichChieu = payload
+                state.listDanhSachPhim = payload
                 state.isFetchingLichChieu = false
             })
             .addCase(lichChieuThunk.rejected, (state) => {
