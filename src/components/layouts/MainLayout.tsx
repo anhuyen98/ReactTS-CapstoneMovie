@@ -1,4 +1,6 @@
 import { Carousel, Footer, Header } from 'components'
+import { BannerHeThongRap } from 'components/ui/BannerHeThongRap'
+import { BannerLichChieu } from 'components/ui/BannerLichChieu'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -9,6 +11,8 @@ export const MainLayout = () => {
             <Carousel />
             <MainWrapper id="main-content">
                 <Outlet />
+                <BannerHeThongRap/>
+                <BannerLichChieu />
             </MainWrapper>
             <Footer />
         </main>

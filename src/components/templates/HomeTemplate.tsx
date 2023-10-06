@@ -37,7 +37,7 @@ export const HomeTemplate = () => {
                 {movieList?.map((movie) => (
                     <Card
                         key={movie.maPhim}
-                        className="!mt-20"
+                        className="!mt-20 !mb-5"
                         hoverable
                         style={{ width: 240 }}
                         cover={<img alt="example" src={movie.hinhAnh} />}
