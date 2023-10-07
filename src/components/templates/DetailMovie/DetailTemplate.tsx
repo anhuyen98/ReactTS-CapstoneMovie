@@ -11,9 +11,7 @@ export const DetailTemplate = () => {
   const dispatch = useAppDispatch()
   const { movieList } = useSelector((state: RootState) => state.quanLyPhim)
   const movieDetail = movieList?.find(movie => movie.maPhim === Number(param.detailId))
-  console.log("movieDetail: ", movieDetail);
   const { movieTheater } = useSelector((state: RootState) => state.quanLyRap)
-  console.log("movieTheater: ", movieTheater);
   useEffect(() => {
     dispatch(getMovieTheaterThunk())
   }, [dispatch])

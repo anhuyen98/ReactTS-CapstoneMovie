@@ -8,7 +8,6 @@ type ShowType = {
 }
 
 export const Show = ({ lichChieu }: ShowType) => {
-  console.log("lichChieu: ", lichChieu);
   const arr: string[] = []
   lichChieu?.forEach((item) => {
     const dayMS = format(formatTime(String(item.ngayChieuGioChieu)), 'dd/MM/yyyy')
@@ -17,7 +16,6 @@ export const Show = ({ lichChieu }: ShowType) => {
       arr.push(dayMS)
     }
   })
-  console.log("arr: ", arr);
   return (
     <div className="text-center p-10 shadow-2xl">
       <Tabs
