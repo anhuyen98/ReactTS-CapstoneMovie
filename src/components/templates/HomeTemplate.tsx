@@ -41,8 +41,6 @@ export const HomeTemplate = () => {
             <MainWrapper id="main-content">
             <div className="grid grid-cols-4">
                 {movieList?.map((movie) => (
-                    <div key={movie.maPhim}>
-
                     <Card
                         key={movie.maPhim}
                         className="!mt-20 !mb-5"
@@ -54,13 +52,14 @@ export const HomeTemplate = () => {
                             title={movie?.tenPhim}
                             description={movie?.moTa?.substring(0, 30)}
                         />
-                    </Card>
-                    <Button onClick={() => {
+                        
+                    <Button className='mt-20' onClick={() => {
                         const path = generatePath(PATH.detail, { detailId: movie.maPhim })
                         console.log("path: ", path);
                         navigate(path)
-                    }}>Mô tả</Button>
-                    </div>
+                    }}>Chi tiết</Button>
+                    </Card>
+
                 ))}
             </div>
                 

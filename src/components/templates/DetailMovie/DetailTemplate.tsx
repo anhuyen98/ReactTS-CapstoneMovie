@@ -37,14 +37,14 @@ export const DetailTemplate = () => {
             {
               !!movieDetail?.sapChieu &&
               <Button className="shadow-xl">
-                <i className="mr-3 fa-solid fa-ticket fa-beat-fade"></i>
+                <i className="mr-[12px] fa-solid fa-ticket fa-beat-fade"></i>
                 Sắp chiếu
               </Button>
             }
             {
               !!movieDetail?.dangChieu &&
               <Button className="shadow-xl">
-                <i className="mr-3 fa-solid fa-tv fa-beat-fade"></i>
+                <i className="mr-[12px] fa-solid fa-tv fa-beat-fade"></i>
                 Đang chiếu
               </Button>
             }
@@ -54,9 +54,9 @@ export const DetailTemplate = () => {
               <span className="font-semibold">Tóm tắt phim: </span>
               <p>{movieDetail?.moTa}</p>
             </div>
-            <a className="btnTrailer shadow-xl py-2 px-6 m-3 inline-block" href={movieDetail?.trailer}>
-              <i className="mr-3 fa-solid fa-video fa-beat-fade"></i>
-              <span>Xem Trailer</span>
+            <a className="btnTrailer shadow-xl py-16 px-24 m-3 inline-block" href={movieDetail?.trailer}>
+              <i className="mr-10 fa-solid fa-video fa-beat-fade"></i>
+              <span className="text-16">Xem Trailer</span>
             </a>
           </div>
         </div>

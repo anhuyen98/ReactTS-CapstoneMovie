@@ -22,13 +22,13 @@ export const Carousel = () => {
             className="mySwiper"
         >
             <SwiperSlide>
-                <img src="https://movienew.cybersoft.edu.vn/hinhanh/ban-tay-diet-quy.png" alt="slide-1" style={{ width: '100%', height: '60vh' }} />
+                <img src="https://movienew.cybersoft.edu.vn/hinhanh/ban-tay-diet-quy.png" alt="slide-1" style={{ width: '100%', height: '60%' }} />
             </SwiperSlide>
             <SwiperSlide>
-                <img src="https://movienew.cybersoft.edu.vn/hinhanh/lat-mat-48h.png" alt="slide-2" style={{ width: '100%', height: '60vh' }} />
+                <img src="https://movienew.cybersoft.edu.vn/hinhanh/lat-mat-48h.png" alt="slide-2" style={{ width: '100%', height: '60%' }} />
             </SwiperSlide>
             <SwiperSlide>
-                <img src="https://movienew.cybersoft.edu.vn/hinhanh/cuoc-chien-sinh-tu.png" alt="slide-3" style={{ width: '100%', height: '60vh' }} />
+                <img src="https://movienew.cybersoft.edu.vn/hinhanh/cuoc-chien-sinh-tu.png" alt="slide-3" style={{ width: '100%', height: '60%' }} />
             </SwiperSlide>
         </Swiper>
     )

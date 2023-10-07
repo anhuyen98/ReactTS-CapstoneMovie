@@ -48,14 +48,14 @@ export const ShowTime = ({ day, lichChieu }: ShowTimeType) => {
             if (dayMS === day) {
               return (
                 <div key={item.maLichChieu} className="">
-                  <div className="mr-[40px] inline-block"><span className="rapChieu py-1 px-2 rounded opacity-70">Rạp chiếu</span>  {item.tenRap}</div>
-                  <div className="mr-[40px] inline-block"><span className="thoiLuong py-1 px-2 rounded opacity-70">Thời lượng</span>  {item.thoiLuong}phút</div>
-                  <div className="mr-[40px] inline-block"><span className="suatChieu py-1 px-2 rounded opacity-70">Suất chiếu</span>  {timeMS}</div>
+                  <div className="mr-[40px] mb-[25px] inline-block"><span className="rapChieu py-[5px] px-[15px] rounded opacity-70 mr-[8px]">Rạp chiếu</span>  {item.tenRap}</div>
+                  <div className="mr-[40px] mb-[25px] inline-block"><span className="thoiLuong py-[5px] px-[15px] rounded opacity-70 mr-[8px]">Thời lượng</span>  {item.thoiLuong}phút</div>
+                  <div className="mr-[40px] mb-[25px] inline-block"><span className="suatChieu py-[5px] px-[15px] rounded opacity-70 mr-[8px]">Suất chiếu</span>  {timeMS}</div>
                   <Button className="m-3 text-4xl" onClick={() => {
                     const path = generatePath(PATH.ticketroom, { ticketId: item.maLichChieu })
                     navigate(path)
                   }}>Đặt vé
-                  <i className="fa-solid ml-3 fa-ticket-simple fa-bounce"></i>
+                  <i className="fa-solid ml-3 fa-ticket-simple fa-bounce ml-[10px]"></i>
                   </Button>
                 </div>
                 // <Table className="my-5" columns={columns} dataSource={dataSource} />

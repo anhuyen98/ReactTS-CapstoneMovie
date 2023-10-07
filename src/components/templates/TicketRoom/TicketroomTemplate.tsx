@@ -1,23 +1,11 @@
 
 import { Choose } from "."
 import { ChairList } from "./ChairList"
-import { ToastContainer } from "react-toastify"
+// import { ToastContainer } from "react-toastify"
 
 export const TicketroomTemplate = () => {
   return (
     <div className="grid grid-cols-12 gap-2">
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
       <div className="col-start-2 col-end-8 mt-[80px]">
         <div className="bg-black w-100 text-white text-2xl text-center leading-10 mb-10">Screen</div>
         <ChairList />

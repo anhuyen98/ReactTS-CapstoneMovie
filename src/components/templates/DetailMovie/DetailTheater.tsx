@@ -93,7 +93,7 @@ export const DetailTheater = () => {
         }) : (
           <div className="px-20">
             <img className="relative" src="/images/backgroundMovie.jpg" alt="" />
-            <p className="absolute top-60 right-48 font-semibold text-3xl text-orange-800">Hiện tại chưa có thông tin phim ở rạp này</p>
+            <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold text-2xl text-orange-800">Hiện tại chưa có thông tin phim ở rạp này</p>
           </div>
         )
       }
