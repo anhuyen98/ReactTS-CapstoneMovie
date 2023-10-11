@@ -8,7 +8,7 @@ import { lichChieuThunk } from "store/lichChieu"
 
 export const BannerLichChieu = () => {
     const dispatch = useAppDispatch()
-    const { listDanhSachPhim, isFetchingLichChieu } = useSelector((state: RootState) => state.lichChieu)
+    const { listDanhSachPhim } = useSelector((state: RootState) => state.lichChieu)
 
 
 

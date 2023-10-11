@@ -16,7 +16,7 @@ export const Header = () => {
     console.log(" movieList: ", movieList);
     const { accessToken, user } = useAuth()
     const dispatch = useAppDispatch()
-    const [inputValue = '', setInputValue] = useState()
+    const [inputValue , setInputValue] = useState<string>('')
     console.log("inputValue: ", inputValue);
     // const [queryParams, setQueryParams] = useQueryUrl()
     const [searchParams, setSearchParams] = useSearchParams()
@@ -32,7 +32,7 @@ export const Header = () => {
     }
 
     const movieListSearch = movieList?.filter((movie) => {
-        return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')?.toLowerCase())
+        return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')!.toLowerCase())
     })
     console.log("movieListSearch: ", movieListSearch);
 
