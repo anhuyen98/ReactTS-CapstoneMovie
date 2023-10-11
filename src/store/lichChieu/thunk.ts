@@ -6,7 +6,7 @@ export const lichChieuThunk = createAsyncThunk (
     'QuanLyRap/getDanhSachPhim',
     async (_, { rejectWithValue }) => {
         try{
-            const data = await lichChieuServices.getDanhSachPhim('?maHeThongRap=bhdStar')
+            const data = await lichChieuServices.getDanhSachPhim()
             await sleep(2000)
             return data.data.content
         } catch (err) {

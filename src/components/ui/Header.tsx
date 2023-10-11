@@ -13,14 +13,11 @@ import { useSelector } from 'react-redux'
 export const Header = () => {
     const navigate = useNavigate()
     const { movieList } = useSelector((state: RootState) => state.quanLyPhim)
-    console.log(" movieList: ", movieList);
     const { accessToken, user } = useAuth()
     const dispatch = useAppDispatch()
     const [inputValue , setInputValue] = useState<string>('')
-    console.log("inputValue: ", inputValue);
     // const [queryParams, setQueryParams] = useQueryUrl()
     const [searchParams, setSearchParams] = useSearchParams()
-    console.log("searchParams: ", searchParams);
     const [scroll, setSecroll] = useState<boolean>(false)
 
     const handleScroll = () => {
@@ -30,10 +27,17 @@ export const Header = () => {
         }
         setSecroll(false)
     }
+    const movieListSearch = () => {
+        if (!searchParams?.get('movie')) {
+            console.log(movieList)
+            return movieList
+        }
 
-    const movieListSearch = movieList?.filter((movie) => {
-        return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')?.toLowerCase())
-    })
+        return movieList?.filter((movie) => movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')!.toLowerCase()))
+    }
+    // const movieListSearch = movieList?.filter((movie) => {
+    //     return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')?.toLowerCase())
+    // })
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -51,7 +55,8 @@ export const Header = () => {
     const content = (
         <div className='w-[400px]'>
             <p>{searchParams?.get('movie') ? (
-                movieListSearch?.map((movie) => {
+                
+                movieListSearch()?.map((movie) => {
                     return (
                         <div key={movie.maPhim} className='flex justify-between items-center' onClick={() => {
                             const path = generatePath(PATH.detail, { detailId: movie.maPhim })

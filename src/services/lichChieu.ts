@@ -6,5 +6,5 @@ const api = apiInstance({
 })
 
 export const lichChieuServices = {   
-    getDanhSachPhim: (maHeThongRap = "") => api.get<ApiResponse<DanhSachPhim[]>>(`/LayThongTinLichChieuHeThongRap?maHeThongRap${maHeThongRap}&maNhom=GP12`),
+    getDanhSachPhim: () => api.get<ApiResponse<DanhSachPhim[]>>("LayThongTinLichChieuHeThongRap?maNhom=GP12"),
 }
