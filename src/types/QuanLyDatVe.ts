@@ -23,3 +23,13 @@ export type ChairList = {
     daDat?: string
     taiKhoanNguoiDat?: string
 }
+
+export type Booking<T> = {
+    maLichChieu?: number,
+    danhSachVe?: T[]
+}
+
+export type ListBooking = {
+    maGhe?: number,
+    giaVe?: number
+}

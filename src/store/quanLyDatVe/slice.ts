@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTicketRoomThunk } from ".";
-import { ChairList, ShowDetail, TicketRoom } from "types";
+import { getBookingUserThunk, getTicketRoomThunk } from ".";
+import { Booking, ChairList, ListBooking, ShowDetail, TicketRoom } from "types";
 
 type QuanLyDatVeInitialState = {
     ticketRoom?: TicketRoom<ShowDetail, ChairList>
     isChairList?: boolean
-    chairBookings: Array<ChairList> 
-    chairBookeds: Array<ChairList> 
+    chairBookings: Array<ChairList>
+    chairBookeds: Array<ChairList>
+    isBookingUser?: boolean
+    bookingUser?: Booking<ListBooking>
 }
 const initialState: QuanLyDatVeInitialState = {
     chairBookings: [],
@@ -17,7 +19,7 @@ const quanLyDatVeSlice = createSlice({
     name: 'quanLyDatVe',
     initialState,
     reducers: {
-        setChairBooking: (state, {payload}) => { 
+        setChairBooking: (state, { payload }) => {
             const index = state.chairBookings?.find(item => item.stt === payload.stt)
             if (index) {
                 const arr = state.chairBookings?.filter(i => i.stt !== payload.stt)
@@ -33,15 +35,19 @@ const quanLyDatVeSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-        .addCase(getTicketRoomThunk.fulfilled, (state, {payload}) => {
-            state.ticketRoom = payload
-            state.isChairList = true
-        })
-        .addCase(getTicketRoomThunk.rejected, (state) => {
-            state.isChairList = false
-        })
+            .addCase(getTicketRoomThunk.fulfilled, (state, { payload }) => {
+                state.ticketRoom = payload
+                state.isChairList = true
+            })
+            .addCase(getTicketRoomThunk.rejected, (state) => {
+                state.isChairList = false
+            })
+            .addCase(getBookingUserThunk.fulfilled, (state, {payload}) => {
+                state.isBookingUser = true
+                state.bookingUser = payload
+            })
     },
 
 })
 
-export const {reducer: quanLyDatVeReducer, actions: quanLyDatVeActions} = quanLyDatVeSlice
+export const { reducer: quanLyDatVeReducer, actions: quanLyDatVeActions } = quanLyDatVeSlice

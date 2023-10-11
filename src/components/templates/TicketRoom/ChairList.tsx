@@ -11,7 +11,7 @@ export const ChairList = () => {
   const dispatch = useAppDispatch()
   const param = useParams()
   useEffect(() => {
-    dispatch(getTicketRoomThunk(String(param.ticketId)))
+    dispatch(getTicketRoomThunk(Number(param.ticketId)))
   }, [dispatch, param.ticketId])
   // let hangGhe = 0 
   return (

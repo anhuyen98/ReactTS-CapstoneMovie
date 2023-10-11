@@ -1,19 +1,27 @@
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, generatePath, useNavigate, useSearchParams } from 'react-router-dom'
 import { styled } from 'styled-components'
 import { Avatar, Button, Input, Popover } from 'components'
 import { PATH } from 'constant'
 import { useAuth } from 'hooks'
-import { useAppDispatch } from 'store'
+import { RootState, useAppDispatch } from 'store'
 import { quanLyNguoiDungActions } from 'store/quanLyNguoiDung'
 import { useEffect, useState } from 'react'
 import cn from 'classnames'
+import { useSelector } from 'react-redux'
+// import { useQueryUrl } from 'hooks/useQueryUrl'
 
 export const Header = () => {
     const navigate = useNavigate()
+    const { movieList } = useSelector((state: RootState) => state.quanLyPhim)
+    console.log(" movieList: ", movieList);
     const { accessToken, user } = useAuth()
     const dispatch = useAppDispatch()
+    const [inputValue = '', setInputValue] = useState()
+    console.log("inputValue: ", inputValue);
+    // const [queryParams, setQueryParams] = useQueryUrl()
+    const [searchParams, setSearchParams] = useSearchParams()
+    console.log("searchParams: ", searchParams);
     const [scroll, setSecroll] = useState<boolean>(false)
-    console.log('scroll: ', scroll)
 
     const handleScroll = () => {
         if (window.pageYOffset > 50) {
@@ -23,12 +31,43 @@ export const Header = () => {
         setSecroll(false)
     }
 
+    const movieListSearch = movieList?.filter((movie) => {
+        return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')?.toLowerCase())
+    })
+    console.log("movieListSearch: ", movieListSearch);
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
+    const [open, setOpen] = useState(false);
+    const hide = () => {
+    setOpen(false);
+  };
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+    const content = (
+        <div className='w-[400px]'>
+            <p>{searchParams?.get('movie') ? (
+                movieListSearch?.map((movie) => {
+                    return (
+                        <div key={movie.maPhim} className='flex justify-between items-center' onClick={() => {
+                            const path = generatePath(PATH.detail, { detailId: movie.maPhim })
+                            navigate(path)
+                        }}>
+                            <span className='mr-5'>{movie.tenPhim}</span>
+                            <img src={movie.hinhAnh} alt="" width='70px' />
+                            <a className='mx-[10px] text-red-600' onClick={hide}>X</a>
+                        </div>
+                    )
+                })
+            ) : 'Không tìm thấy phim phù hợp'
+            }</p>
+        </div>
+    );
 
     return (
         <Container
@@ -47,12 +86,22 @@ export const Header = () => {
                         <NavLink to="">RẠP</NavLink>
                         <NavLink to="">TIN TỨC</NavLink>
                     </nav>
-                    <div className="search">
-                        <Input placeholder="Tìm kiếm tên phim" />
-                        <Button>
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </Button>
-                    </div>
+
+                    <Popover open={open} onOpenChange={handleOpenChange} content={content} title="Danh Sách Phim" trigger="click" >
+
+                        <div className="search">
+                            <Input value={inputValue} placeholder="Tìm kiếm tên phim" onChange={(e) => {
+                                setInputValue(e.target.value)
+                            }} />
+                            <Button onClick={() => {
+                                setSearchParams({
+                                    movie: inputValue
+                                })
+                            }}>
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                            </Button>
+                        </div>
+                    </Popover>
                     <div>
                         {!accessToken && (
                             <p className="flex items-center font-600">
@@ -88,8 +137,10 @@ export const Header = () => {
                                         <Button
                                             className="!h-[46px]"
                                             type="primary"
-                                            onClick={() =>
-                                                dispatch(quanLyNguoiDungActions.logOut('abc'))
+                                            onClick={() => {
+                                                dispatch(quanLyNguoiDungActions.logOut('abc')),
+                                                    navigate(PATH.login)
+                                            }
                                             }
                                         >
                                             <i className="fa-solid fa-arrow-right-from-bracket text-16"></i>

@@ -2,7 +2,7 @@ import { AccountHistoryBooking, AccountInfo, Tabs } from 'components'
 
 export const AccountTemplate = () => {
   return (
-    <div>
+    <div className='mt-20'>
       <Tabs
         tabPosition='left'
         items={[

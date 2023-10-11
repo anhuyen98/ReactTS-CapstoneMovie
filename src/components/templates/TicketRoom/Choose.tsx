@@ -2,14 +2,34 @@ import { ColumnsType } from "antd/es/table"
 import { Button, Table } from "components"
 import { useSelector } from "react-redux"
 import { RootState, useAppDispatch } from "store"
-import { quanLyDatVeActions } from "store/quanLyDatVe"
+import { getBookingUserThunk, quanLyDatVeActions } from "store/quanLyDatVe"
 import styled from "styled-components"
-import { ChairList } from "types"
-import {toast} from 'react-toastify';
+import { Booking, ChairList, ListBooking } from "types"
+import { toast } from 'react-toastify';
+import { useParams } from "react-router-dom"
+import {useEffect} from 'react';
 
 export const Choose = () => {
-  const { chairBookings } = useSelector((state: RootState) => state.quanLyDatVe)
+  const { chairBookings, chairBookeds } = useSelector((state: RootState) => state.quanLyDatVe)
+  const params = useParams()
   const dispatch = useAppDispatch()
+  
+  useEffect(() => {
+    const booking: Booking<ListBooking> = {
+      maLichChieu: Number(params.ticketId),
+      danhSachVe: []
+    }
+  
+    chairBookeds?.map((item) => {
+      const itemNew = {
+        maGhe: Number(item?.maGhe),
+        giaVe: Number(item?.giaVe)
+      }
+      return booking?.danhSachVe?.push(itemNew)
+    })
+    dispatch(getBookingUserThunk(booking))
+  }, [chairBookeds, params, dispatch])
+
   const notify = () => {
     toast.success('Bạn đã đặt vé thành công!', {
       position: "top-center",
@@ -20,7 +40,7 @@ export const Choose = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      });
+    });
   }
   const columns: ColumnsType<ChairList> = [
     {
@@ -57,6 +77,7 @@ export const Choose = () => {
       key: chair.maGhe
     }
   })
+
   return (
     <ResultStyle>
       <div className="text-center">
@@ -91,7 +112,8 @@ export const Choose = () => {
 
               <Button onClick={() => {
                 dispatch(quanLyDatVeActions.setChairBooked());
-                notify()
+                notify();
+
               }}>Thanh Toán</Button>
             </div>
           </div>

@@ -55,7 +55,6 @@ export const HomeTemplate = () => {
                         
                     <Button className='mt-20' onClick={() => {
                         const path = generatePath(PATH.detail, { detailId: movie.maPhim })
-                        console.log("path: ", path);
                         navigate(path)
                     }}>Chi tiết</Button>
                     </Card>

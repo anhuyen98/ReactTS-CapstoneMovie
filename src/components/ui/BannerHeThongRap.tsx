@@ -8,7 +8,6 @@ export const BannerHeThongRap = () => {
     const dispatch = useAppDispatch()
     const { listHeThongRap, isFetchingListHeThongRap } = useSelector((state: RootState) => state.heThongRap)
 
-    console.log("isFetchingListHeThongRap: ", isFetchingListHeThongRap);
     // console.log("listHeThongRap: ", listHeThongRap);
 
 

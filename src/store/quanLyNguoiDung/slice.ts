@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { UserByAccessToken, UserLogin } from 'types'
-import { getUserByAccessTokenThunk, loginThunk } from '.'
+import { ChairBook, ListChair, UserByAccessToken, UserLogin } from 'types'
+import { getUserByAccessTokenThunk, loginThunk, upDateUserThunk } from '.'
 import { getAccessToken } from 'utils'
 
 type QuanLyNguoiDungInitialState = {
     accessToken?: string | null
-    userLogin?: UserLogin | UserByAccessToken
+    userLogin?: UserByAccessToken<ListChair<ChairBook>> | UserLogin
     isFetchingLogin?: boolean
 }
 
@@ -23,7 +23,7 @@ const quanLyNguoiDungSlice = createSlice({
             state.accessToken = undefined
             state.userLogin = undefined
             localStorage.removeItem('ACCESSTOKEN')
-        },
+        }
     }, 
     extraReducers(builder) {
        
@@ -47,6 +47,11 @@ const quanLyNguoiDungSlice = createSlice({
 
             .addCase(getUserByAccessTokenThunk.fulfilled, (state, { payload }) => {
                 state.userLogin = payload
+            })
+
+            .addCase(upDateUserThunk.fulfilled, (state, {payload}) => {
+                state.userLogin = payload
+                
             })
     },
 })

@@ -1,12 +1,13 @@
 import { apiInstance } from "constant";
-import { ChairList, ShowDetail, TicketRoom } from "types";
+import { Booking, ChairList, ListBooking, ShowDetail, TicketRoom } from "types";
 
 const api = apiInstance({
     baseURL: import.meta.env.VITE_QUAN_LY_DAT_VE_API
 })
 
 export const quanLyDatVeServices = {
-    getTicketRoom: (param = '') => api.get<ApiResponse<TicketRoom<ShowDetail, ChairList>>>(`/LayDanhSachPhongVe?MaLichChieu=${param}`)
+    getTicketRoom: (param:number) => api.get<ApiResponse<TicketRoom<ShowDetail, ChairList>>>(`/LayDanhSachPhongVe?MaLichChieu=${param}`),
 
-    // 19963
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getBookingUser: (data: any) => api.post<ApiResponse<Booking<ListBooking>>>('/DatVe', data)
 }

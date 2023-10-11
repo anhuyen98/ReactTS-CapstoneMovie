@@ -4,6 +4,7 @@ import { UseFormRegister } from 'react-hook-form'
 
 
 type InputProps = {
+    value?: string | number | readonly string[] | undefined,
     label?: string
     id?: string
     type?: HTMLInputTypeAttribute
@@ -13,9 +14,11 @@ type InputProps = {
     placeholder?: string
     className?: string
     name?: string
+    onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Input = ({
+    value,
     label,
     id,
     register,
@@ -24,6 +27,7 @@ export const Input = ({
     placeholder,
     className = '',
     name = '',
+    onChange
 }: InputProps) => {
     return (
         <div className={className}>
@@ -33,11 +37,13 @@ export const Input = ({
                 </label>
             )}
             <input
+            value={value}
                 id={id}
                 placeholder={placeholder}
                 type={type}
                 className="p-10 mt-8 w-full text-white rounded-6 bg-[#333]"
                 {...register?.(name)}
+                onChange={onChange}
             />
             {!!error && <p className="text-red-500 text-14">{error}</p>}
         </div>
