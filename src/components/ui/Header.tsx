@@ -32,9 +32,8 @@ export const Header = () => {
     }
 
     const movieListSearch = movieList?.filter((movie) => {
-        return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')!.toLowerCase())
+        return movie.tenPhim?.toLowerCase().includes(searchParams?.get('movie')?.toLowerCase())
     })
-    console.log("movieListSearch: ", movieListSearch);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -95,7 +94,7 @@ export const Header = () => {
                             }} />
                             <Button onClick={() => {
                                 setSearchParams({
-                                    movie: inputValue
+                                    movie: inputValue 
                                 })
                             }}>
                                 <i className="fa-solid fa-magnifying-glass"></i>
